@@ -1,0 +1,9 @@
+# pycharm
+.idea/
+
+data/
+
+**.egg-info/
+__pycache__/
+
+env/
