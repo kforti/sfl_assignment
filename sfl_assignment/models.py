@@ -1,6 +1,11 @@
 from dataclasses import dataclass
 from typing import Dict
 
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, String
+
+Base = declarative_base()
+
 
 @dataclass
 class Configuration:
@@ -8,21 +13,6 @@ class Configuration:
     data_access: Dict
     database: Dict
 
-
-# @dataclass
-# class User:
-#     id: int
-#     first_name: str
-#     last_name: str
-#     email: str
-#     gender: str
-#     ip_address: str
-
-
-from sqlalchemy.orm import declarative_base
-
-Base = declarative_base()
-from sqlalchemy import Column, Integer, String
 
 class User(Base):
      __tablename__ = 'users'
@@ -33,11 +23,6 @@ class User(Base):
      email = Column(String)
      gender = Column(String)
      ip_address = Column(String)
-
-     # def __repr__(self):
-     #    return "<User(name='%s', fullname='%s', nickname='%s')>" % (
-     #                         self.name, self.fullname, self.nickname)
-
 
 
 class UserSerializer:
@@ -58,6 +43,7 @@ class UserSerializer:
 
 class UserRepository:
     serializer = UserSerializer()
+
     def __init__(self, session):
         self.session = session
 

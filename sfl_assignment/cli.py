@@ -5,7 +5,7 @@ import click
 import sqlalchemy
 import pandas as pd
 
-from .build_database import sqlite_connection_factory, build_users_db
+from .databases import build_users_db
 from .models import Configuration
 from .services import run_etl_service
 
@@ -24,17 +24,11 @@ def run_etl_pipeline(env, file_path):
     run_etl_service(config, file_path)
 
 
-DATABASES = {
-    'sqlite': sqlite_connection_factory
-}
-
-
 @click.command()
 @click.argument('database')
 def create_database(database):
     Path.home().joinpath('.sfl_assignment').mkdir()
-    conn_factory = DATABASES[database]
-    build_users_db(conn_factory)
+    build_users_db(database)
 
 
 @click.command()

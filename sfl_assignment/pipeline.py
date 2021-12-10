@@ -25,7 +25,3 @@ def load(records, unit_of_work):
             unit_of_work.repository.add(record)
         unit_of_work.commit()
     return None
-
-
-
-

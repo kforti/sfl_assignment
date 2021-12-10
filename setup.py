@@ -9,9 +9,6 @@ requirements = ['Click',
                 'python_dotenv',
                 ] + install_requires
 
-test_requires = open("test-requirements.txt").read().strip().split("\n")
-test_requirements = ['pytest>=3',
-                     ] + test_requires
 
 setup(
     author="Kevin Fortier",
@@ -40,7 +37,5 @@ setup(
     keywords='sfl_assignment',
     name='sfl_assignment',
     packages=find_packages(include=['sfl_assignment', 'sfl_assignment.*']),
-    test_suite='tests',
-    tests_require=test_requirements,
     zip_safe=False,
 )

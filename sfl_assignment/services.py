@@ -6,7 +6,6 @@ from .pipeline import run_etl_pipeline
 from .unit_of_work import SQLAlchemyUnitofWork, SessionFactory
 
 
-
 DATA_ACCESS_FACTORIES = {
     ('local', 'csv'): local_csv_data_access_factory,
     ('aws', 'csv'): s3_csv_data_access_factory
